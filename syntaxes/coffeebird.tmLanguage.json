@@ -1,26 +1,139 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Coffeebird",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"strings": {
-			"name": "string.quoted.double.coffeebird",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.coffeebird",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.coffeebird"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Coffeebird",
+  "patterns": [
+    {
+      "include": "#string-literal"
+    },
+    {
+      "include": "#numeric-literal"
+    },
+    {
+      "include": "#boolean-literal"
+    },
+    {
+      "include": "#keyword"
+    },
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#variable"
+    },
+    {
+      "include": "#expression-operators"
+    },
+    {
+      "include": "#dictionary"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        {
+          "begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.whitespace.comment.leading.coffeebird"
+            },
+            "2": {
+              "name": "comment.line.double-slash.coffeebird"
+            },
+            "3": {
+              "name": "punctuation.definition.comment.coffeebird"
+            },
+            "4": {
+              "name": "storage.type.internaldeclaration.coffeebird"
+            },
+            "5": {
+              "name": "punctuation.decorator.internaldeclaration.coffeebird"
+            }
+          },
+          "end": "(?=$)",
+          "contentName": "comment.line.double-slash.coffeebird"
+        }
+      ]
+    },
+    "keyword": {
+      "patterns": [
+        {
+          "name": "keyword.coffeebird",
+          "match": "\\b(rel|concept)\\b"
+        }
+      ]
+    },
+    "variable": {
+      "begin": "%",
+      "end": "(\\s|;)",
+      "name": "variable.language.coffeebird"
+    },
+    "string-literal": {
+      "name": "string.quoted.double.coffeebird",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.coffeebird",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "numeric-literal": {
+      "patterns": [
+        {
+          "name": "constant.numeric.decimal.coffeebird",
+          "match": "-?\\d+(.\\d+)?"
+        }
+      ]
+    },
+    "boolean-literal": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.coffeebird",
+          "match": "\\b(true|false)\\b"
+        }
+      ]
+    },
+    "expression-operators": {
+      "patterns": [
+        {
+          "match": "==|\\!=|>=|<=|>|<",
+          "name": "keyword.operator.comparison.coffeebird"
+        },
+        {
+          "match": "\\+|-|\\*|/|%|\\^",
+          "name": "keyword.opeator.arithmetic.coffeebird"
+        }
+      ]
+    },
+    "dictionary": {
+      "begin": "\\(",
+      "end": "\\)",
+      "name": "dictionary.coffeebird",
+      "patterns": [
+        {
+          "include": "#boolean-literal"
+        },
+        {
+          "include": "#string-literal"
+        },
+        {
+          "include": "#numeric-literal"
+        },
+        {
+          "match": ":",
+          "name": "punctuation.separator.key-value.coffeebird"
+        },
+        {
+          "match": "(\\S+)\\s*:",
+          "name": "meta.object-literal.key.coffeebird"
+        },
+        {
+          "match": ":\\s*(\\S+)\\s*(?:\\)|,)",
+          "name": "meta.object-literal.value.coffeebird"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.coffeebird"
 }
