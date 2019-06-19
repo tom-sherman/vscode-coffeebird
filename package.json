@@ -1,18 +1,30 @@
 {
   "name": "vscode-coffeebird",
   "displayName": "Coffeebird",
-  "description": "Coffeebird",
+  "description": "Coffeebird language support.",
   "version": "0.0.3",
   "publisher": "tom-sherman",
   "repository": {
     "type": "git",
     "url": "https://github.com/tom-sherman/vscode-coffeebird"
   },
+  "bugs": {
+    "url": "https://github.com/tom-sherman/vscode-coffeebird/issues"
+  },
+  "homepage": "https://github.com/tom-sherman/vscode-coffeebird#readme",
   "engines": {
     "vscode": "^1.35.0"
   },
   "categories": [
     "Programming Languages"
+  ],
+  "keywords": [
+    "rainbird",
+    "dsl",
+    "language",
+    "AI",
+    "artificial intelligence",
+    "automate decision making"
   ],
   "contributes": {
     "languages": [
