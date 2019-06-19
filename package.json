@@ -2,7 +2,7 @@
   "name": "vscode-coffeebird",
   "displayName": "Coffeebird",
   "description": "Coffeebird",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "tom-sherman",
   "repository": {
     "type": "git",
