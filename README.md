@@ -8,5 +8,5 @@ Coffeebird is a DSL which compiles to Rainbird's RBLang. RBLang is an XML based 
 
 - [x] Auto-closing quotes and brackets
 - [ ] Syntax highlighting
-- [ ] Snippets
+- [x] Snippets
 - [ ] Language server
