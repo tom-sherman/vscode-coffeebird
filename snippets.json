@@ -1,0 +1,35 @@
+{
+  "Concept": {
+    "prefix": "concept",
+    "body": [
+      "concept ${1:name} (type: ${2|string,number,truth,date|})"
+    ]
+  },
+  "Relationship": {
+    "prefix": "rel",
+    "body": [
+      "rel ${1:subject} - ${2:relationship} - ${3:object}"
+    ]
+  },
+  "Instance": {
+    "prefix": "instance",
+    "body": [
+      "${1:type}(${2:value})"
+    ]
+  },
+  "Fact": {
+    "prefix": "fact",
+    "body": [
+      "\"${1:subject}\" - ${2:relationship} - ${3:object} (cf: ${4:100})"
+    ]
+  },
+  "Rule": {
+    "prefix": "rule",
+    "body": [
+      "${1:subject - }${2:relationship}${3: - object} {",
+      "  ${4:%S} - ${5:relationship} - ${6:%O};",
+      "  $0",
+      "}"
+    ]
+  }
+}

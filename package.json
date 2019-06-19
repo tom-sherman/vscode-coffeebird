@@ -34,6 +34,12 @@
         "scopeName": "source.coffeebird",
         "path": "./syntaxes/coffeebird.tmLanguage.json"
       }
+    ],
+    "snippets": [
+      {
+        "language": "coffeebird",
+        "path": "./snippets.json"
+      }
     ]
   }
 }
