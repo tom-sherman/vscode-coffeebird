@@ -3,6 +3,15 @@
   "name": "Coffeebird",
   "patterns": [
     {
+      "include": "#comment"
+    },
+    {
+      "include": "#rule"
+    },
+    {
+      "include": "#fact"
+    },
+    {
       "include": "#string-literal"
     },
     {
@@ -15,19 +24,96 @@
       "include": "#keyword"
     },
     {
-      "include": "#comment"
-    },
-    {
-      "include": "#variable"
-    },
-    {
-      "include": "#expression-operators"
-    },
-    {
       "include": "#dictionary"
     }
   ],
   "repository": {
+    "condition-rel": {
+      "match": "(.+) (- .+ -) (.+)",
+      "captures": {
+        "1": {
+          "patterns": [
+            {
+              "include": "#variable"
+            },
+            {
+              "include": "#string-literal"
+            }
+          ]
+        },
+        "2": {
+          "name": "variable.name.coffeebird"
+        },
+        "3": {
+          "patterns": [
+            {
+              "include": "#variable"
+            },
+            {
+              "include": "#string-literal"
+            },
+            {
+              "include": "#numeric-literal"
+            },
+            {
+              "include": "#boolean-literal"
+            }
+          ]
+        }
+      }
+    },
+    "rule": {
+      "begin": "{",
+      "end": "}",
+      "name": "rule.coffeebird",
+      "patterns": [
+        {
+          "include": "#condition-rel"
+        },
+        {
+          "include": "#variable"
+        },
+        {
+          "include": "#expression-operators"
+        },
+        {
+          "include": "#string-literal"
+        },
+        {
+          "include": "#numeric-literal"
+        },
+        {
+          "include": "#boolean-literal"
+        },
+        {
+          "include": "#comment"
+        }
+      ]
+    },
+    "fact": {
+      "begin": "(\"(?:[^\"\\\\]|\\\\.)*\") - [a-z0-9\\s-_]+",
+      "beginCaptures": {
+        "1": {
+          "name": "string.quoted.double.coffeebird"
+        }
+      },
+      "end": "\\n",
+      "name": "fact.coffeebird",
+      "patterns": [
+        {
+          "include": "#string-literal"
+        },
+        {
+          "include": "#boolean-literal"
+        },
+        {
+          "include": "#numeric-literal"
+        },
+        {
+          "include": "#dictionary"
+        }
+      ]
+    },
     "comment": {
       "patterns": [
         {
@@ -63,9 +149,19 @@
       ]
     },
     "variable": {
-      "begin": "%",
-      "end": "(\\s|;)",
-      "name": "variable.language.coffeebird"
+      "begin": "(%)",
+      "beginCaptures": {
+        "1": {
+          "name": "variable.language.coffeebird"
+        }
+      },
+      "end": "\\s|;",
+      "patterns": [
+        {
+          "match": "[A-Z0-9_]+",
+          "name": "variable.language.coffeebird"
+        }
+      ]
     },
     "string-literal": {
       "name": "string.quoted.double.coffeebird",
@@ -103,6 +199,10 @@
         {
           "match": "\\+|-|\\*|/|%|\\^",
           "name": "keyword.opeator.arithmetic.coffeebird"
+        },
+        {
+          "match": "and|or",
+          "name": "keyword.opeator.boolean.coffeebird"
         }
       ]
     },
