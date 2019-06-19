@@ -2,7 +2,7 @@
   "name": "vscode-coffeebird",
   "displayName": "Coffeebird",
   "description": "Coffeebird language support.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "tom-sherman",
   "repository": {
     "type": "git",
