@@ -1,25 +1,39 @@
 {
-    "name": "vscode-coffeebird",
-    "displayName": "vscode-coffeebird",
-    "description": "Coffeebird",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.35.0"
-    },
-    "categories": [
-        "Programming Languages"
+  "name": "vscode-coffeebird",
+  "displayName": "vscode-coffeebird",
+  "description": "Coffeebird",
+  "version": "0.0.1",
+  "publisher": "tom-sherman",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tom-sherman/vscode-coffeebird"
+  },
+  "engines": {
+    "vscode": "^1.35.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "coffeebird",
+        "aliases": [
+          "Coffeebird",
+          "coffeebird"
+        ],
+        "extensions": [
+          ".coffeebird"
+        ],
+        "configuration": "./language-configuration.json"
+      }
     ],
-    "contributes": {
-        "languages": [{
-            "id": "coffeebird",
-            "aliases": ["Coffeebird", "coffeebird"],
-            "extensions": [".coffeebird"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "coffeebird",
-            "scopeName": "source.coffeebird",
-            "path": "./syntaxes/coffeebird.tmLanguage.json"
-        }]
-    }
+    "grammars": [
+      {
+        "language": "coffeebird",
+        "scopeName": "source.coffeebird",
+        "path": "./syntaxes/coffeebird.tmLanguage.json"
+      }
+    ]
+  }
 }
